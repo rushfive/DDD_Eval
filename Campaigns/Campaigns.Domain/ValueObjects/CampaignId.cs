@@ -10,7 +10,7 @@ namespace Campaigns.Domain.ValueObjects
 	{
 		private readonly Guid Value;
 
-		internal CampaignId(Guid value)
+		public CampaignId(Guid value)
 		{
 			if (value == default)
 				throw new ArgumentException("Campaign id must be specified.", nameof(value));

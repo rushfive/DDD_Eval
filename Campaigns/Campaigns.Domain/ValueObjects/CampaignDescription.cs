@@ -11,7 +11,7 @@ namespace Campaigns.Domain.ValueObjects
 
 		private readonly string _value;
 
-		internal CampaignDescription(string value)
+		public CampaignDescription(string value)
 		{
 			CheckValidity(value);
 			_value = value;

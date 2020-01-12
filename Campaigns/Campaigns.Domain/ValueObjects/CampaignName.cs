@@ -9,7 +9,7 @@ namespace Campaigns.Domain.ValueObjects
 	{
 		private readonly string Value;
 
-		internal CampaignName(string value)
+		public CampaignName(string value)
 		{
 			if (string.IsNullOrWhiteSpace(value))
 				throw new ArgumentException("Campaign name must be specified.", nameof(value));

@@ -12,7 +12,7 @@ namespace Campaigns.Domain.Entities
 		public CampaignId Id { get; private set; }
 		public CampaignName Name { get; private set; }
 		public CampaignDescription Description { get; private set; }
-		public CampaignEnrollmentState EnrollmentState { get; private set; }
+		public CampaignEnrollmentState EnrollmentState { get; private set; } = CampaignEnrollmentState.Default;
 
 		//private readonly ICampaignsRepository _repository;
 
