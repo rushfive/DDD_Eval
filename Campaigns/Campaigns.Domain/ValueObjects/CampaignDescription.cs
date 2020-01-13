@@ -9,15 +9,15 @@ namespace Campaigns.Domain.ValueObjects
 	{
 		public static CampaignDescription FromString(string description) => new CampaignDescription(description);
 
-		private readonly string _value;
+		public string Value { get; }
 
 		public CampaignDescription(string value)
 		{
 			CheckValidity(value);
-			_value = value;
+			Value = value;
 		}
 
-		public static implicit operator string(CampaignDescription self) => self?._value ?? default;
+		public static implicit operator string(CampaignDescription self) => self?.Value ?? default;
 
 		private static void CheckValidity(string value)
 		{

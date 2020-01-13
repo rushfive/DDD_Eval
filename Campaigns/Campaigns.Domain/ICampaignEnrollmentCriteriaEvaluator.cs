@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Campaigns.Domain
 {
-	public interface ICampaignEnrollmentService
+	public interface ICampaignEnrollmentCriteriaEvaluator
 	{
 		Task<bool> CanEnroll(Guid participantId, Guid campaignId);
 	}

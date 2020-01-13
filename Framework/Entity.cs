@@ -19,7 +19,7 @@ namespace Framework
 		protected void Apply(object @event)
 		{
 			When(@event);
-			EnsureValidState();
+			//EnsureValidState();
 			_events.Add(@event);
 		}
 
@@ -29,7 +29,7 @@ namespace Framework
 
 		public void ClearChanges() => _events.Clear();
 
-		protected abstract void EnsureValidState();
-		protected abstract object GetSerializableDebugRepresentation();
+		//protected abstract void EnsureValidState();
+		//protected abstract object GetSerializableDebugRepresentation();
 	}
 }

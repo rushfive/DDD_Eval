@@ -8,7 +8,7 @@ namespace Campaigns.Domain.ValueObjects
 {
 	public class CampaignId : Value<CampaignId>
 	{
-		private readonly Guid Value;
+		public Guid Value { get; }
 
 		public CampaignId(Guid value)
 		{

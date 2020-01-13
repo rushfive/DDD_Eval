@@ -7,15 +7,10 @@ namespace Framework
 {
 	public class InvalidEntityStateException : Exception
 	{
-		public string SerializedEntity { get; }
-
-		public InvalidEntityStateException(object entity, string message, object serializableRepresentation)
+		public InvalidEntityStateException(object entity, string message)
 			: base($"Entity {entity.GetType().Name} state change rejected, {message}")
 		{
-			if (serializableRepresentation != null)
-			{
-				SerializedEntity = JsonConvert.SerializeObject(serializableRepresentation, Formatting.Indented);
-			}
+			
 		}
 	}
 }

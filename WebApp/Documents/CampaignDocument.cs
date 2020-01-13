@@ -16,7 +16,7 @@ namespace WebApp.Documents
 		public Guid Id { get; set; }
 		public string Name{ get; set; }
 		public string Description{ get; set; }
-		public CampaignEnrollmentStateDocument EnrollmentState { get; set; }
+		public CampaignEnrollmentConfigurationDocument EnrollmentConfiguration { get; set; }
 
 		public static Campaign ToEntity(CampaignDocument document)
 		{
@@ -27,11 +27,11 @@ namespace WebApp.Documents
 			if (!string.IsNullOrWhiteSpace(document.Description))
 				campaign.SetDescription(new CampaignDescription(document.Description));
 
-			if (document.EnrollmentState.EnrollmentSuspended)
-				campaign.EnrollmentState.SuspendEnrollments();
+			if (document.EnrollmentConfiguration.EnrollmentSuspended)
+				campaign.EnrollmentConfiguration.SuspendEnrollments();
 
-			if (document.EnrollmentState.AutoEnrollNewParticipants)
-				campaign.EnrollmentState.StartAutoEnrollingNewParticipants();
+			if (document.EnrollmentConfiguration.AutoEnrollNewParticipants)
+				campaign.EnrollmentConfiguration.StartAutoEnrollingNewParticipants();
 
 			return campaign;
 		}
@@ -43,19 +43,19 @@ namespace WebApp.Documents
 				Id = entity.Id,
 				Name = entity.Name,
 				Description = entity.Description,
-				EnrollmentState = CampaignEnrollmentStateDocument.ToDocument(entity.EnrollmentState)
+				EnrollmentConfiguration = CampaignEnrollmentConfigurationDocument.ToDocument(entity.EnrollmentConfiguration)
 			};
 		}
 	}
 
-	public class CampaignEnrollmentStateDocument
+	public class CampaignEnrollmentConfigurationDocument
 	{
 		public bool EnrollmentSuspended { get; set; }
 		public bool AutoEnrollNewParticipants { get; set; }
 
-		public static CampaignEnrollmentState ToEntity(CampaignEnrollmentStateDocument document)
+		public static CampaignEnrollmentConfiguration ToEntity(CampaignEnrollmentConfigurationDocument document)
 		{
-			var state = CampaignEnrollmentState.Default;
+			var state = CampaignEnrollmentConfiguration.Default;
 
 			if (document.EnrollmentSuspended)
 				state.SuspendEnrollments();
@@ -66,9 +66,9 @@ namespace WebApp.Documents
 			return state;
 		}
 
-		public static CampaignEnrollmentStateDocument ToDocument(CampaignEnrollmentState entity)
+		public static CampaignEnrollmentConfigurationDocument ToDocument(CampaignEnrollmentConfiguration entity)
 		{
-			return new CampaignEnrollmentStateDocument
+			return new CampaignEnrollmentConfigurationDocument
 			{
 				EnrollmentSuspended = entity.EnrollmentSuspended,
 				AutoEnrollNewParticipants = entity.AutoEnrollNewParticipants

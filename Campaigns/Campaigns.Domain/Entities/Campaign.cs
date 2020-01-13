@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace Campaigns.Domain.Entities
 {
-	public class Campaign : Entity
+
+	// consider: splitting into 2 entities
+	// 1 - contains id name desc enrollment config
+	// 2 - "CampaignEnrollables"
+	//		- contains workflows and campaign tasks
+	public class Campaign : AggregateRoot<CampaignId>
 	{
 		public CampaignId Id { get; private set; }
 		public CampaignName Name { get; private set; }
 		public CampaignDescription Description { get; private set; }
-		public CampaignEnrollmentState EnrollmentState { get; private set; } = CampaignEnrollmentState.Default;
+		public CampaignEnrollmentConfiguration EnrollmentConfiguration { get; private set; } = CampaignEnrollmentConfiguration.Default;
 
 		//private readonly ICampaignsRepository _repository;
 
@@ -50,13 +55,13 @@ namespace Campaigns.Domain.Entities
 				case Events.CampaignCreated e:
 					Id = new CampaignId(e.Id);
 					Name = new CampaignName(e.Name);
-					EnrollmentState = CampaignEnrollmentState.Default;
+					EnrollmentConfiguration = CampaignEnrollmentConfiguration.Default;
 					break;
 				case Events.CampaignDescriptionUpdated e:
 					Description = new CampaignDescription(e.Description);
 					break;
 				case Events.CampaignEnrollmentSuspended e:
-					EnrollmentState = EnrollmentState.SuspendEnrollments();
+					EnrollmentConfiguration = EnrollmentConfiguration.SuspendEnrollments();
 					break;
 			}
 		}
@@ -78,13 +83,8 @@ namespace Campaigns.Domain.Entities
 
 			if (!valid)
 			{
-				throw new InvalidEntityStateException(this, "Post checks failed", GetSerializableDebugRepresentation());
+				throw new InvalidEntityStateException(this, "Post checks failed");
 			}
-		}
-
-		protected override object GetSerializableDebugRepresentation()
-		{
-			throw new NotImplementedException();
 		}
 	}
 }

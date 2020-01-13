@@ -7,7 +7,7 @@ namespace Campaigns.Domain.ValueObjects
 {
 	public class CampaignName : Value<CampaignName>
 	{
-		private readonly string Value;
+		public string Value { get; }
 
 		public CampaignName(string value)
 		{
