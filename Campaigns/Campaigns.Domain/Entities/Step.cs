@@ -1,16 +1,19 @@
-﻿using Framework;
+﻿using Campaigns.Domain.ValueObjects;
+using Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Campaigns.Domain.Entities
 {
-	public class Step : Entity
+	public class Step : Entity<StepId>
 	{
-		protected override void EnsureValidState()
+		public Step() : base(null)
 		{
-			throw new NotImplementedException();
+
 		}
+
+
 
 		protected override void When(object @event)
 		{

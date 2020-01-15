@@ -8,9 +8,9 @@ namespace Campaigns.Domain.ValueObjects
 {
 	public class CampaignEnrollmentConfiguration : Value<CampaignEnrollmentConfiguration>
 	{
-		public bool EnrollmentSuspended { get; }
-		public bool AutoEnrollNewParticipants { get; }
-		public Criteria EntranceCriteria { get; }
+		public bool EnrollmentSuspended { get; internal set; }
+		public bool AutoEnrollNewParticipants { get; internal set; }
+		public Criteria EntranceCriteria { get; internal set; }
 
 		internal CampaignEnrollmentConfiguration(
 			bool enrollmentSuspended,
@@ -68,5 +68,7 @@ namespace Campaigns.Domain.ValueObjects
 		{
 			return $"Enrollments: {(EnrollmentSuspended ? "Suspended" : "Active")}, {(AutoEnrollNewParticipants ? "Auto-Enrolled" : "Manually-Enrolled")}";
 		}
+
+		internal CampaignEnrollmentConfiguration() { }
 	}
 }

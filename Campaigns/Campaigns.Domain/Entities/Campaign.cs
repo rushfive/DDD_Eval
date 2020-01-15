@@ -17,7 +17,7 @@ namespace Campaigns.Domain.Entities
 		public CampaignId Id { get; private set; }
 		public CampaignName Name { get; private set; }
 		public CampaignDescription Description { get; private set; }
-		public CampaignEnrollmentConfiguration EnrollmentConfiguration { get; private set; } = CampaignEnrollmentConfiguration.Default;
+		//public CampaignEnrollmentConfiguration EnrollmentConfiguration { get; private set; } = CampaignEnrollmentConfiguration.Default;
 
 		//private readonly ICampaignsRepository _repository;
 
@@ -40,13 +40,7 @@ namespace Campaigns.Domain.Entities
 			});
 		}
 
-		public void SuspendNewEnrollments()
-		{
-			Apply(new Events.CampaignEnrollmentSuspended
-			{
-				Id = Id
-			});
-		}
+		
 
 		protected override void When(object @event)
 		{
@@ -55,13 +49,9 @@ namespace Campaigns.Domain.Entities
 				case Events.CampaignCreated e:
 					Id = new CampaignId(e.Id);
 					Name = new CampaignName(e.Name);
-					EnrollmentConfiguration = CampaignEnrollmentConfiguration.Default;
 					break;
 				case Events.CampaignDescriptionUpdated e:
 					Description = new CampaignDescription(e.Description);
-					break;
-				case Events.CampaignEnrollmentSuspended e:
-					EnrollmentConfiguration = EnrollmentConfiguration.SuspendEnrollments();
 					break;
 			}
 		}

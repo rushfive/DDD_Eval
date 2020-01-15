@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Campaigns.Domain.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -21,6 +22,13 @@ namespace Campaigns.Domain
 		public class CampaignEnrollmentSuspended
 		{
 			public Guid Id { get; set; }
+		}
+
+		public class CampaignTaskAdded
+		{
+			public string Name { get; set; }
+			public string Description { get; set; }
+			public TaskType Type { get; set; }
 		}
 	}
 }

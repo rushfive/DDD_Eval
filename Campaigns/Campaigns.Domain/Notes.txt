@@ -1,0 +1,8 @@
+Values shouldnt have public setters
+	- HOWEVER, they SHOULD have empty internal constructors
+	  along with internal setters.
+	  This is b/c we still need to query databases and be able
+	  to construct these.
+	- it's possible that validation rules (in the main constructor)
+	  could change over time + we decide we dont need to update existing values.
+	  So, without the empty internal constructor, we wouldn't be able to construct this.

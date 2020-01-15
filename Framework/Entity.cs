@@ -5,31 +5,23 @@ using System.Text;
 
 namespace Framework
 {
-	public abstract class Entity
+	public abstract class Entity<TId>// : IInternalEventHandler
+		where TId : Value<TId>
 	{
-		private readonly List<object> _events;
+		private readonly Action<object> _applier;
 
-		protected Entity()
-		{
-			_events = new List<object>();
-		}
+		public TId Id { get; protected set; }
 
-		//protected void Raise(object @event) => _events.Add(@event);
+		protected Entity(Action<object> applier) => _applier = applier;
+
+		protected abstract void When(object @event);
 
 		protected void Apply(object @event)
 		{
 			When(@event);
-			//EnsureValidState();
-			_events.Add(@event);
+			_applier(@event);
 		}
 
-		protected abstract void When(object @event);
-
-		public IEnumerable<object> GetChanges() => _events.AsEnumerable();
-
-		public void ClearChanges() => _events.Clear();
-
-		//protected abstract void EnsureValidState();
-		//protected abstract object GetSerializableDebugRepresentation();
+		//void IInternalEventHandler.Handle(object @event) => When(@event);
 	}
 }

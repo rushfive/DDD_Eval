@@ -1,4 +1,5 @@
-﻿using Framework;
+﻿using Campaigns.Domain.ValueObjects;
+using Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,13 +7,12 @@ using System.Text;
 namespace Campaigns.Domain.Entities
 {
 	// should be aggregate root, containing entities like steps and tasks
-	public class Workflow : Entity
+	public class Workflow : Entity<WorkflowId>
 	{
-		protected override void EnsureValidState()
+		public Workflow() : base(null)
 		{
-			throw new NotImplementedException();
-		}
 
+		}
 		protected override void When(object @event)
 		{
 			throw new NotImplementedException();
