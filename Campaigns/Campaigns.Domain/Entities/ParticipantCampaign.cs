@@ -6,16 +6,18 @@ using System.Text;
 namespace Campaigns.Domain.Entities
 {
 	// todo: should be aggregate root
-	public class ParticipantCampaign : Entity
+	public class ParticipantCampaign : Entity<ParticipantCampaignId>
 	{
-		protected override void EnsureValidState()
-		{
-			throw new NotImplementedException();
-		}
+		public ParticipantCampaign(Action<object> rootApplier) : base(rootApplier) { }
 
 		protected override void When(object @event)
 		{
 			throw new NotImplementedException();
 		}
+	}
+
+	public class ParticipantCampaignId : Value<ParticipantCampaignId>
+	{
+
 	}
 }

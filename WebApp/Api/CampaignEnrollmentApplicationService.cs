@@ -25,7 +25,7 @@ namespace WebApp.Api
 				throw new CampaignEnrollmentException(command.ParticipantId, command.CampaignId);
 			}
 
-			var participantCampaign = new ParticipantCampaign();
+			//var participantCampaign = new ParticipantCampaign();
 
 			// TODO: add via ptp campaign repo
 

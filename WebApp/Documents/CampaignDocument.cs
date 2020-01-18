@@ -27,11 +27,11 @@ namespace WebApp.Documents
 			if (!string.IsNullOrWhiteSpace(document.Description))
 				campaign.SetDescription(new CampaignDescription(document.Description));
 
-			if (document.EnrollmentConfiguration.EnrollmentSuspended)
-				campaign.EnrollmentConfiguration.SuspendEnrollments();
+			//if (document.EnrollmentConfiguration.EnrollmentSuspended)
+			//	campaign.EnrollmentConfiguration.SuspendEnrollments();
 
-			if (document.EnrollmentConfiguration.AutoEnrollNewParticipants)
-				campaign.EnrollmentConfiguration.StartAutoEnrollingNewParticipants();
+			//if (document.EnrollmentConfiguration.AutoEnrollNewParticipants)
+			//	campaign.EnrollmentConfiguration.StartAutoEnrollingNewParticipants();
 
 			return campaign;
 		}
@@ -43,7 +43,7 @@ namespace WebApp.Documents
 				Id = entity.Id,
 				Name = entity.Name,
 				Description = entity.Description,
-				EnrollmentConfiguration = CampaignEnrollmentConfigurationDocument.ToDocument(entity.EnrollmentConfiguration)
+				//EnrollmentConfiguration = CampaignEnrollmentConfigurationDocument.ToDocument(entity.EnrollmentConfiguration)
 			};
 		}
 	}

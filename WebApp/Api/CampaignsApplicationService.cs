@@ -35,9 +35,9 @@ namespace WebApp.Api
 				V1.UpdateDescription cmd => 
 					HandleUpdate(cmd.Id, 
 						c => c.SetDescription(new CampaignDescription(cmd.Description))),
-				V1.SuspendNewEnrollments cmd => 
-					HandleUpdate(cmd.Id, 
-						c => c.SuspendNewEnrollments()),
+				//V1.SuspendNewEnrollments cmd => 
+				//	HandleUpdate(cmd.Id, 
+				//		c => c.SuspendNewEnrollments()),
 				_ => Task.CompletedTask
 			};
 		}
@@ -64,7 +64,7 @@ namespace WebApp.Api
 				throw new InvalidOperationException($"Campaign with id '{campaignId}' cannot be found");
 			}
 
-			campaign.SuspendNewEnrollments();
+			//campaign.SuspendNewEnrollments();
 			await _repository.Save(campaign);
 		}
 	}
