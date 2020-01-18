@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Framework
 {
-	public abstract class AggregateRoot<TId>
+	public abstract class AggregateRoot<TId> : IInternalEventHandler
 		where TId : Value<TId>
 	{
 		public TId Id { get; protected set; }
@@ -32,5 +32,11 @@ namespace Framework
 		// - only needs to exist in Aggregate roots b/c the root is what maintains the
 		//   correctness of the whole aggregates (and not just itself)
 		protected abstract void EnsureValidState();
+
+		protected void ApplyToEntity(IInternalEventHandler entity, object @event)
+			=> entity?.Handle(@event);
+
+		void IInternalEventHandler.Handle(object @event)
+			 => When(@event);
 	}
 }

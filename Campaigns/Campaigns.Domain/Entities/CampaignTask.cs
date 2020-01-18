@@ -9,22 +9,24 @@ namespace Campaigns.Domain.Entities
 {
 	public class CampaignTask : Entity<CampaignTaskId>
 	{
-		public string Name { get; }
-		public string Description { get; }
-		public TaskType Type { get; }
+		public string Name { get; private set; }
+		public string Description { get; private set; }
+		public TaskType Type { get; private set; }
 
-		public CampaignTask(CampaignTaskId id, string name, 
-			string description, TaskType taskType) : base(null)
-		{
-			Id = id;
-			Name = name;
-			Description = description;
-			Type = taskType;
-		}
+		public CampaignTask(Action<object> rootApplier) : base(rootApplier) { }
 
+		// This 'When' method should never fail
 		protected override void When(object @event)
 		{
-			throw new NotImplementedException();
+			switch (@event)
+			{
+				case Events.CampaignTaskAdded e:
+					Id = e.CampaignTaskId;
+					Name = e.Name;
+					Description = e.Description;
+					Type = e.Type;
+					break;
+			}
 		}
 	}
 }

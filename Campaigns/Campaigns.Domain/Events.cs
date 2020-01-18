@@ -1,4 +1,5 @@
 ﻿using Campaigns.Domain.Enumerations;
+using Campaigns.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +27,15 @@ namespace Campaigns.Domain
 
 		public class CampaignTaskAdded
 		{
+			public CampaignTaskId CampaignTaskId { get; set; }
+			public string Name { get; set; }
+			public string Description { get; set; }
+			public TaskType Type { get; set; }
+		}
+
+		public class CampaignTaskBasicInfoUpdated
+		{
+			public CampaignTaskId CampaignTaskId { get; set; }
 			public string Name { get; set; }
 			public string Description { get; set; }
 			public TaskType Type { get; set; }

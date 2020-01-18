@@ -24,10 +24,13 @@ namespace Campaigns.Domain.Entities
 		public void AddCampaignTask(string name, string description, TaskType taskType) =>
 			Apply(new Events.CampaignTaskAdded
 			{
+				CampaignTaskId = CampaignTaskId.GenerateNew(),
 				Name = name,
 				Description = description,
 				Type = taskType
 			});
+
+
 
 		public void SuspendNewEnrollments()
 		{
@@ -42,9 +45,9 @@ namespace Campaigns.Domain.Entities
 			switch (@event)
 			{
 				case Events.CampaignTaskAdded e:
-					var id = CampaignTaskId.GenerateNew();
-					var task = new CampaignTask(id, e.Name, e.Description, e.Type);
-					Tasks[id] = new PublishableEntity<CampaignTask, CampaignTaskId>(task);
+					var campaignTask = new CampaignTask(Apply);
+					ApplyToEntity(campaignTask, e);
+					Tasks[campaignTask.Id] = new PublishableEntity<CampaignTask, CampaignTaskId>(campaignTask);
 					break;
 				case Events.CampaignEnrollmentSuspended _:
 					EnrollmentConfiguration = EnrollmentConfiguration.SuspendEnrollments();
