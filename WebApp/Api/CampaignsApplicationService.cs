@@ -32,9 +32,9 @@ namespace WebApp.Api
 			{
 				V1.Create cmd => 
 					HandleCreate(cmd),
-				V1.UpdateDescription cmd => 
-					HandleUpdate(cmd.Id, 
-						c => c.SetDescription(new CampaignDescription(cmd.Description))),
+				V1.UpdateDescription cmd => throw new NotImplementedException(),
+					//HandleUpdate(cmd.Id, 
+					//	c => c.SetDescription(new CampaignDescription(cmd.Description))),
 				//V1.SuspendNewEnrollments cmd => 
 				//	HandleUpdate(cmd.Id, 
 				//		c => c.SuspendNewEnrollments()),
@@ -44,28 +44,31 @@ namespace WebApp.Api
 
 		private async Task HandleCreate(V1.Create cmd)
 		{
-			if (await _repository.Exists(cmd.Id))
-			{
-				throw new InvalidOperationException($"Campaign with id '{cmd.Id}' already exists.");
-			}
+			throw new NotImplementedException();
+			//if (await _repository.Exists(cmd.Id))
+			//{
+			//	throw new InvalidOperationException($"Campaign with id '{cmd.Id}' already exists.");
+			//}
 
-			var campaign = new Campaign(
-				new CampaignId(cmd.Id),
-				new CampaignName(cmd.Name));
+			//var campaign = new Campaign(
+			//	new CampaignId(cmd.Id),
+			//	new CampaignName(cmd.Name));
 
-			await _repository.Save(campaign);
+			//await _repository.Save(campaign);
 		}
 
-		private async Task HandleUpdate(Guid campaignId, Action<Campaign> operation)
+		//private async Task HandleUpdate(Guid campaignId, Action<Campaign> operation)
+		private async Task HandleUpdate(Guid campaignId, Action<object> operation)
 		{
-			var campaign = await _repository.Load(campaignId);
-			if (campaign == null)
-			{
-				throw new InvalidOperationException($"Campaign with id '{campaignId}' cannot be found");
-			}
+			throw new NotImplementedException();
+			//var campaign = await _repository.Load(campaignId);
+			//if (campaign == null)
+			//{
+			//	throw new InvalidOperationException($"Campaign with id '{campaignId}' cannot be found");
+			//}
 
-			//campaign.SuspendNewEnrollments();
-			await _repository.Save(campaign);
+			////campaign.SuspendNewEnrollments();
+			//await _repository.Save(campaign);
 		}
 	}
 }

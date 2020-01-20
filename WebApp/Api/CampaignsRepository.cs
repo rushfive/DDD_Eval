@@ -27,7 +27,8 @@ namespace WebApp.Api
 			return count > 0;
 		}
 
-		public async Task<Campaign> Load(Guid id)
+		//public async Task<Campaign> Load(Guid id)
+		public async Task<object> Load(Guid id)
 		{
 			var filter = Builders<CampaignDocument>.Filter.Eq(c => c.Id, id);
 			IFindFluent<CampaignDocument, CampaignDocument> fluentFind = Collection().Find(filter);
@@ -41,10 +42,12 @@ namespace WebApp.Api
 			return CampaignDocument.ToEntity(campaign);
 		}
 
-		public Task Save(Campaign campaign)
+		//public Task Save(Campaign campaign)
+		public Task Save(object campaign)
 		{
-			var document = CampaignDocument.ToDocument(campaign);
-			return Collection().InsertOneAsync(document);
+			throw new NotImplementedException();
+			//var document = CampaignDocument.ToDocument(campaign);
+			//return Collection().InsertOneAsync(document);
 		}
 
 		private IMongoCollection<CampaignDocument> Collection()

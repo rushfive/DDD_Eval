@@ -11,13 +11,15 @@ namespace Campaigns.Domain
 	{
 		public class CampaignCreated
 		{
-			public Guid Id { get; set; }
+			public Guid CampaignId { get; set; }
 			public string Name { get; set; }
+			public string Description { get; set; }
 		}
 
-		public class CampaignDescriptionUpdated
+		public class CampaignBasicInfoUpdated
 		{
-			public Guid Id { get; set; }
+			public Guid CampaignId { get; set; }
+			public string Name { get; set; }
 			public string Description { get; set; }
 		}
 

@@ -11,7 +11,7 @@ namespace Campaigns.Domain
 	{
 		Task<bool> Exists(Guid id);
 		//Task<bool> Exists(string name);
-		Task<Campaign> Load(Guid id);
-		Task Save(Campaign campaign);
+		//Task<Campaign> Load(Guid id);
+		//Task Save(Campaign campaign);
 	}
 }

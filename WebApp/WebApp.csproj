@@ -15,6 +15,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Campaigns\Campaigns.Domain\Campaigns.Domain.csproj" />
+		<ProjectReference Include="..\Database\Database.csproj" />
 	</ItemGroup>
 
 </Project>

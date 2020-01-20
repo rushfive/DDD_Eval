@@ -18,5 +18,7 @@ namespace Campaigns.Domain.ValueObjects
 		}
 
 		public static implicit operator Guid(CampaignId self) => self?.Value ?? default;
+
+		public static implicit operator CampaignId(Guid id) => new CampaignId(id);
 	}
 }

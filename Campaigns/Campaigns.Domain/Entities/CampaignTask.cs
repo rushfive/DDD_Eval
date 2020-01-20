@@ -9,10 +9,11 @@ namespace Campaigns.Domain.Entities
 {
 	public class CampaignTask : Entity<CampaignTaskId>
 	{
+		public CampaignId CampaignId { get; private set; }
 		public CampaignTaskBasicInfo BasicInfo { get; private set; }
 
 		// Type specific configurations
-		public ActivityTaskConfiguration ActivityTypeConfiguration { get; private set; }
+		//public ActivityTaskConfiguration ActivityTypeConfiguration { get; private set; }
 
 		public CampaignTask(Action<object> rootApplier) : base(rootApplier) { }
 

@@ -14,18 +14,19 @@ namespace WebApp.Documents
 	{
 		[BsonId]
 		public Guid Id { get; set; }
-		public string Name{ get; set; }
-		public string Description{ get; set; }
+		public string Name { get; set; }
+		public string Description { get; set; }
 		public CampaignEnrollmentConfigurationDocument EnrollmentConfiguration { get; set; }
 
 		public static Campaign ToEntity(CampaignDocument document)
 		{
-			var campaign = new Campaign(
-				new CampaignId(document.Id),
-				new CampaignName(document.Name));
+			throw new NotImplementedException();
+			//var campaign = new Campaign(
+			//	new CampaignId(document.Id),
+			//	new CampaignName(document.Name));
 
-			if (!string.IsNullOrWhiteSpace(document.Description))
-				campaign.SetDescription(new CampaignDescription(document.Description));
+			//if (!string.IsNullOrWhiteSpace(document.Description))
+			//	campaign.SetDescription(new CampaignDescription(document.Description));
 
 			//if (document.EnrollmentConfiguration.EnrollmentSuspended)
 			//	campaign.EnrollmentConfiguration.SuspendEnrollments();
@@ -33,18 +34,19 @@ namespace WebApp.Documents
 			//if (document.EnrollmentConfiguration.AutoEnrollNewParticipants)
 			//	campaign.EnrollmentConfiguration.StartAutoEnrollingNewParticipants();
 
-			return campaign;
+			//return campaign;
 		}
 
 		public static CampaignDocument ToDocument(Campaign entity)
 		{
-			return new CampaignDocument
-			{
-				Id = entity.Id,
-				Name = entity.Name,
-				Description = entity.Description,
-				//EnrollmentConfiguration = CampaignEnrollmentConfigurationDocument.ToDocument(entity.EnrollmentConfiguration)
-			};
+			throw new NotImplementedException();
+			//return new CampaignDocument
+			//{
+			//	Id = entity.Id,
+			//	Name = entity.Name,
+			//	Description = entity.Description,
+			//	//EnrollmentConfiguration = CampaignEnrollmentConfigurationDocument.ToDocument(entity.EnrollmentConfiguration)
+			//};
 		}
 	}
 
@@ -70,8 +72,8 @@ namespace WebApp.Documents
 		{
 			return new CampaignEnrollmentConfigurationDocument
 			{
-				EnrollmentSuspended = entity.EnrollmentSuspended,
-				AutoEnrollNewParticipants = entity.AutoEnrollNewParticipants
+				EnrollmentSuspended = entity.Suspended,
+				AutoEnrollNewParticipants = entity.AutoEnroll
 			};
 		}
 	}

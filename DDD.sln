@@ -5,19 +5,21 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Participants", "Participants", "{A9789E2A-7D98-4918-83E8-8366395C1600}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Participants.Domain", "Participants\Participants.Domain\Participants.Domain.csproj", "{298C9CE6-84F3-4A86-B646-1987F5CA7665}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Participants.Domain", "Participants\Participants.Domain\Participants.Domain.csproj", "{298C9CE6-84F3-4A86-B646-1987F5CA7665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Participants.Tests", "Participants\Participants.Tests\Participants.Tests.csproj", "{01EA2B93-052F-4C2B-95C9-18F9E6E56129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Participants.Tests", "Participants\Participants.Tests\Participants.Tests.csproj", "{01EA2B93-052F-4C2B-95C9-18F9E6E56129}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{D8D78F3E-FBCB-4E5E-8461-CD2327C17495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{D8D78F3E-FBCB-4E5E-8461-CD2327C17495}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{29FC8681-F531-420C-A97F-1E62FBA42FE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework", "Framework\Framework.csproj", "{29FC8681-F531-420C-A97F-1E62FBA42FE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Campaigns", "Campaigns", "{E5807BB0-D797-48CE-9572-E9CA19BEF726}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Campaigns.Domain", "Campaigns\Campaigns.Domain\Campaigns.Domain.csproj", "{80C2B17A-DDCF-4CC3-98C6-F40E3231FC10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Campaigns.Domain", "Campaigns\Campaigns.Domain\Campaigns.Domain.csproj", "{80C2B17A-DDCF-4CC3-98C6-F40E3231FC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Campaigns.Tests", "Campaigns\Campaigns.Tests\Campaigns.Tests.csproj", "{278B43F1-6044-4AAA-9073-B2B5A0BF6580}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Campaigns.Tests", "Campaigns\Campaigns.Tests\Campaigns.Tests.csproj", "{278B43F1-6044-4AAA-9073-B2B5A0BF6580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{E27A2839-C3D5-4205-BD3B-5CFF02ABCA51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{278B43F1-6044-4AAA-9073-B2B5A0BF6580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{278B43F1-6044-4AAA-9073-B2B5A0BF6580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{278B43F1-6044-4AAA-9073-B2B5A0BF6580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27A2839-C3D5-4205-BD3B-5CFF02ABCA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27A2839-C3D5-4205-BD3B-5CFF02ABCA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27A2839-C3D5-4205-BD3B-5CFF02ABCA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27A2839-C3D5-4205-BD3B-5CFF02ABCA51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

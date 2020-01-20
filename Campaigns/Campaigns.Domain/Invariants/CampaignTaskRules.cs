@@ -9,7 +9,9 @@ namespace Campaigns.Domain.Invariants
 	{
 		public static bool IsValid(this CampaignTask task)
 		{
-			return HasValidTypeBasedConfiguration(task);
+			return task.Id != null
+				&& task.BasicInfo !=  null
+				&& HasValidTypeBasedConfiguration(task);
 		}
 
 		private static bool HasValidTypeBasedConfiguration(CampaignTask task)
